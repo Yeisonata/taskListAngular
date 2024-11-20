@@ -1,0 +1,194 @@
+.task {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en columna por defecto */
+  gap: 0.8rem;
+  border: 1px solid;
+  border-image: linear-gradient(90deg, #16b7fc, #003893, #9627e0) 1;
+  padding: 1rem;
+  color: #c5c7c7;
+  line-height: 24px;
+}
+
+/* Descripción de la tarea */
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word; /* Evita desbordamientos */
+  overflow-wrap: break-word;
+  max-height: 3rem; /* Limita la altura */
+  overflow: hidden; /* Oculta el texto extra */
+  text-overflow: ellipsis; /* Muestra "..." */
+  color: #1e1d2b;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.top p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #4a4a5a;
+  border-radius: 6px;
+  background-color: #1e1d2b;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  resize: vertical; /* Permite ajustar la altura */
+  min-height: 80px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+
+/* Cambiar color del borde cuando el textarea está enfocado */
+textarea:focus {
+  outline: none;
+  border-color: #16b7fc; /* Borde azul brillante al hacer foco */
+}
+
+input {
+  padding: 0.75rem;
+  border: 1px solid #4a4a5a;
+  border-radius: 6px;
+  background-color: #1e1d2b;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+
+/* Cambiar color del borde cuando el input está enfocado */
+input:focus {
+  outline: none;
+  border-color: #16b7fc; /* Borde azul brillante al hacer foco */
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between; /* Coloca los elementos en extremos opuestos */
+  align-items: center;
+  gap: 8px; /* Espaciado opcional entre los elementos */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten si no hay suficiente espacio */
+}
+
+.description {
+  flex: 1; /* Asegura que la descripción ocupe espacio proporcional */
+}
+
+app-dropdown-menu {
+  flex-basis: 20%; /* Ajusta el ancho de los dropdowns */
+  max-width: 38%; /* Limita su tamaño */
+}
+
+app-dropdown-menu:first-of-type {
+  justify-self: flex-start; /* Alinea el primero a la izquierda */
+}
+
+app-dropdown-menu:last-of-type {
+  justify-self: flex-end; /* Alinea el segundo a la derecha */
+}
+
+span {
+  font-size: 14px;
+}
+
+.bottom span {
+  display: block;
+  margin-bottom: 8px; /* Opcional: agrega espacio entre los elementos */
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition-duration: .3s;
+}
+
+button img {
+  width: 20px;
+}
+
+button:hover {
+  transform: scale(1.2)
+}
+
+/* Media queries para hacer que el diseño sea responsivo */
+@media (max-width: 768px) {
+  .task {
+    padding: 1rem; /* Ajusta el padding en pantallas pequeñas */
+  }
+
+  .top {
+    flex-direction: column; /* Coloca los elementos de 'top' en columna */
+    align-items: flex-start;
+  }
+
+  .description {
+    max-height: none; /* Elimina la restricción de altura para la descripción */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+  }
+
+  app-dropdown-menu {
+    flex-basis: 40%; /* Aumenta el tamaño de los dropdowns para pantallas pequeñas */
+    max-width: 50%; /* Limita el tamaño máximo de los dropdowns */
+  }
+
+  .bottom {
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: flex-start; /* Alinea a la izquierda */
+  }
+
+  button img {
+    width: 18px; /* Ajusta el tamaño de la imagen del botón */
+  }
+}
+
+@media (max-width: 480px) {
+  .task {
+    padding: 0.8rem; /* Ajusta aún más el padding */
+  }
+
+  .top p {
+    font-size: 10px; /* Reduce el tamaño del texto en 'top' */
+  }
+
+  textarea {
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente de textarea */
+  }
+
+  input {
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente de input */
+  }
+
+  app-dropdown-menu {
+    flex-basis: 50%; /* Los dropdowns ocuparán más espacio */
+    max-width: 60%; /* Aumenta el tamaño de los dropdowns */
+  }
+
+  button img {
+    width: 16px; /* Reduce el tamaño de la imagen del botón */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .task {
+    background-color: #f0f0f0;
+    color: black;
+  }
+}
+
+.completed {
+  color: green; /* Color verde para completado */
+  text-decoration: line-through; /* Tachado */
+}

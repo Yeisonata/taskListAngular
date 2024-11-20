@@ -1,0 +1,73 @@
+$select_width: 140px;
+$select_height: 40px;
+
+.selectContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  min-width: $select_width;
+  padding: 0.5rem;
+
+  border-radius: 6px;
+  background-color: #1e1d2b; /* Fondo oscuro predeterminado */
+  color: white; /* Color de texto blanco predeterminado */
+  font-size: 1rem;
+
+  .option-select {
+    width: fit-content;
+  }
+
+  .select {
+    width: 100%;
+    color: white; /* Color de texto blanco predeterminado */
+    height: $select_height;
+    border: 1px solid #29292f;
+    font-size: 14px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .withOpacity {
+      color: #ffffff30;
+    }
+
+    &:hover {
+      transition-duration: 0.3s;
+      filter: brightness(1.5);
+    }
+  }
+}
+
+.options {
+  /* Estilo del dropdown */
+  position: absolute; // Posición relativa al contenedor padre
+  top: 100%; // Alineado justo debajo del contenedor
+  left: 0; // Alineado al borde izquierdo del contenedor
+  display: flex; // Usar flexbox
+  flex-direction: column; // Ordenar en una columna
+  margin-top: 0.5rem; // Espacio entre el dropdown y el contenedor
+  width: 100%; // Ancho total del contenedor padre
+  max-height: 250px; // Altura máxima más amplia
+  overflow-y: auto; // Scroll vertical si excede la altura
+  overflow-x: hidden; // Ocultar scroll horizontal
+  border-radius: 8px; // Bordes redondeados
+  border: 1px solid #3a3a4a; // Borde gris oscuro
+  background-color: #2b2b3a; // Fondo oscuro
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); // Sombra suave
+  color: #ffffff; // Texto en blanco
+  font-size: 0.9rem; // Tamaño de fuente
+  padding: 0.5rem 0; // Espaciado interno
+  transition: all 0.3s ease; // Animación suave
+  z-index: 999; // Para asegurar que se muestre sobre otros elementos
+
+  // Efecto en hover
+  & > div:hover {
+    background-color: #404050; // Fondo más claro al pasar el mouse
+    color: #ffffff; // Mantener texto blanco
+    cursor: pointer; // Indicar que es clickeable
+  }
+}
+
+

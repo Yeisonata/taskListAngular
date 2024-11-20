@@ -1,0 +1,20 @@
+<div class="selectContainer">
+  <div (click)="toggleDropdownMenu()" class="select">
+    <ng-container *ngIf="optionSelected?.name; else placeholderTemplate">
+      <p class="option-select">
+        <span>{{ optionSelected?.name }}</span>
+      </p>
+    </ng-container>
+    <!-- Aquí puedes agregar un ícono de flecha o cualquier indicador visual -->
+  <app-arrow [open]="open"/>
+  </div>
+  <div class="options" *ngIf="open">
+    <div *ngFor="let option of options" class="option-item" (click)="selectOption(option)">
+      <span>{{ option.name }}</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #placeholderTemplate>
+  <span class="withOpacity">{{ placeholder }}</span>
+</ng-template>

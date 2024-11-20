@@ -1,0 +1,48 @@
+  <div *ngIf="todoList" class="task">
+    <div class="bottom">
+      <p>
+        <strong>Title:</strong>
+        <!-- Si está en modo edición, muestra un input -->
+        <span *ngIf="!isEditing">
+          <span [ngClass]="{'completed': todoList.status === 'finished'}">
+            {{ todoList.title }}
+          </span>
+        </span>
+        <input *ngIf="isEditing" [(ngModel)]="editTaskData.title" />
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <!-- Si está en modo edición, muestra un textarea -->
+        <span *ngIf="!isEditing">
+          <span [ngClass]="{'completed': todoList.status === 'finished'}" class="description">
+            {{ todoList.description }}
+          </span>
+        </span>
+        <textarea *ngIf="isEditing" [(ngModel)]="editTaskData.description"></textarea>
+      </p>
+      <div class="form-group">
+        <label  for="status">Status</label>
+        <app-dropdown-menu 
+      [options]="statusOptions" 
+      [optionSelected]="optionSelect"
+      (onSelect)="(changeStatus($event))"/>
+      </div>
+
+      <!-- Botón para editar o guardar -->
+      <button *ngIf="!isEditing" (click)="toggleEdit()">
+        <img src="assets/edit.svg" alt="edit" />
+      </button>
+      <button *ngIf="isEditing" (click)="saveEdit()">
+        <img src="assets/save.svg" alt="save" />
+      </button>
+    </div>
+
+    <div class="top">
+      <p *ngIf="todoList.createdAt">{{ todoList.createdAt | dateFormat }}</p>  
+      <p *ngIf="todoList.dueDate">Time until due: {{todoList.dueDate  | timeUntil }}</p>
+      <button (click)="removeTask()">
+        <img src="assets/cross.svg" alt="cross" />
+      </button>
+    </div>
+  </div>

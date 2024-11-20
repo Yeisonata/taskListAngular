@@ -1,0 +1,66 @@
+/* Estilo general para la clase .container */
+.container {
+  position: relative; /* Cambié de 'fixed' a 'relative' para permitir el scroll */
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid;
+  
+
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-size: 30px;
+    align-self: center;
+  }
+}
+
+/* Para permitir scroll dentro de .task-list */
+.task-list {
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto; /* Permite el scroll vertical cuando el contenido es mayor al contenedor */
+  flex-grow: 1; /* Permite que .task-list ocupe el espacio restante dentro de .container */
+  max-height: 100%; /* Asegura que el contenedor de tareas ocupe todo el espacio restante */
+}
+
+/* Modo oscuro (default) */
+body.dark-mode .container {
+  background-color: #262335;
+  border-color: #262335;
+  color: white;
+}
+
+/* Modo claro */
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #f5f5f5;
+    color: black;
+    border-image: linear-gradient(90deg, #fcd116, #003893, #ce1126) 1;
+  }
+
+  h1 {
+    color: black;
+  }
+}
+
+/* Modo oscuro (detectado automáticamente) */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #262335;
+    border-color: #262335;
+    color: white;
+  }
+
+  h1 {
+    color: white;
+  }
+}
