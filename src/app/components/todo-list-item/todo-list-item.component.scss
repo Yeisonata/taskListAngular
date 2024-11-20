@@ -19,7 +19,7 @@
   max-height: 3rem; /* Limita la altura */
   overflow: hidden; /* Oculta el texto extra */
   text-overflow: ellipsis; /* Muestra "..." */
-  color: #1e1d2b;
+  color: #f3f3f6;
 }
 
 .top {
@@ -136,7 +136,7 @@ button:hover {
 
   .description {
     max-height: none; /* Elimina la restricción de altura para la descripción */
-    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    font-size: 1rem; /* Reduce el tamaño de la fuente */
   }
 
   app-dropdown-menu {
@@ -160,7 +160,8 @@ button:hover {
   }
 
   .top p {
-    font-size: 10px; /* Reduce el tamaño del texto en 'top' */
+    font-size: 13px; /* Reduce el tamaño del texto en 'top' */
+    font-weight: bold;
   }
 
   textarea {
